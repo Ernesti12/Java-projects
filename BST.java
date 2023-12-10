@@ -133,26 +133,22 @@ public class BST{
         }
     }
     public int smallest() {
-        if (this.left == null && this.right == null) {
-            return (int)this.item;
-        } else if (this.left != null && this.right == null) {
-            return this.left.smallest();
-        } else if (this.left == null && this.right != null) {
-            return this.right.smallest();
-        } else {
-            return Math.min(this.left.smallest(), this.right.smallest());
+        BST current = this;
+
+        while (current.left != null) {
+            current = current.left;
         }
+
+        return (int) current.item;
     }
     public int largest() {
-        if (this.left == null && this.right == null) {
-            return (int)this.item;
-        } else if (this.left != null && this.right == null) {
-            return this.left.largest();
-        } else if (this.left == null && this.right != null) {
-            return this.right.largest();
-        } else {
-            return Math.max(this.left.largest(), this.right.largest());
+        BST current = this;
+
+        while (current.right != null) {
+            current = current.right;
         }
+
+        return (int) current.item;
     }
     public boolean contains(Object item) {
         return this.item.equals(item);
@@ -460,9 +456,7 @@ public class BST{
                     displayBST(tree);
                     break;
                 case 5:
-                    System.out.println("----------------------------");
-                    System.out.println("|          JIMCARRY        |");
-                    System.out.println("----------------------------");
+                    System.out.println("\n\nCopyright (c) 2023 Jimcarry");
                     System.exit(0);
                     break;
                 default:
